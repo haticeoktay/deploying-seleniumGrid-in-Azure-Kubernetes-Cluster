@@ -1,0 +1,25 @@
+# kubectl apply -f hub-AKS-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: selenium-hub
+  labels:
+    app: selenium-hub
+spec:
+  selector:
+    app: selenium-hub
+  ports:
+  - port: 4444
+    targetPort: 4444
+    name: port0
+  - port: 4443
+    targetPort: 4443
+    name: port1
+  - port: 4442
+    targetPort: 4442
+    name: port2
+  - port: 7900
+    targetPort: 7900
+    name: port3
+  type: LoadBalancer
+  sessionAffinity: None
